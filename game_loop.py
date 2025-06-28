@@ -42,7 +42,7 @@ while True:
                 game.snake.direction = Vector2(-1, 0)
             if event.key == pygame.K_RIGHT and game.snake.direction != Vector2(-1,0):
                 game.snake.direction = Vector2(1, 0)
-
+    game.check_collision_with_food()
     screen.fill(GREEN)
     game.draw()
     pygame.display.update()

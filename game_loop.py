@@ -2,6 +2,8 @@ import sys
 
 import pygame
 
+from food import Food
+
 '''
 first make a blank canvas
 '''
@@ -16,11 +18,14 @@ screen = pygame.display.set_mode((num_of_cells * cell_size, num_of_cells * cell_
 pygame.display.set_caption("Snake Game")
 clock = pygame.time.Clock()
 
+food = Food()
+
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
     screen.fill(GREEN)
+    food.draw()
     pygame.display.update()
     clock.tick(60)

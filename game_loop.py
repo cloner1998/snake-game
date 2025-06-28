@@ -34,6 +34,8 @@ while True:
             pygame.quit()
             sys.exit()
         if event.type == pygame.KEYDOWN:
+            if game.state == "STOPPED":
+                game.state = "RUNNING"
             if event.key == pygame.K_UP and game.snake.direction != Vector2(0,1):
                 game.snake.direction = Vector2(0, -1)
             if event.key == pygame.K_DOWN and game.snake.direction != Vector2(0,-1):

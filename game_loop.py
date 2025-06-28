@@ -15,10 +15,11 @@ pygame.init()
 
 GREEN = (173, 204, 96)
 DARK_GREEN = (43, 51, 24)
+OFF_SET = 75
 
-cell_size = 30
-num_of_cells = 25
-screen = pygame.display.set_mode((num_of_cells * cell_size, num_of_cells * cell_size))
+cell_size = 20
+num_of_cells = 20
+screen = pygame.display.set_mode((2*OFF_SET+num_of_cells * cell_size, 2*OFF_SET+num_of_cells * cell_size))
 pygame.display.set_caption("Snake Game")
 clock = pygame.time.Clock()
 
@@ -46,6 +47,7 @@ while True:
                 game.snake.direction = Vector2(1, 0)
     game.check_collision_with_food()
     screen.fill(GREEN)
+    pygame.draw.rect(screen, DARK_GREEN, (OFF_SET-5,OFF_SET-5, cell_size*num_of_cells + 10, cell_size*num_of_cells + 10), 5)
     game.draw()
     pygame.display.update()
 

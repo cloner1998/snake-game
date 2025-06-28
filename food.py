@@ -8,8 +8,8 @@ class Food:
 
     def draw(self):
         from game_loop import cell_size
-
-        food_rect = pygame.Rect(self.position.x * cell_size, self.position.y * cell_size, cell_size, cell_size )
+        from game_loop import OFF_SET
+        food_rect = pygame.Rect(OFF_SET + self.position.x * cell_size, OFF_SET + self.position.y * cell_size, cell_size, cell_size )
 
         from game_loop import screen
         from game_loop import DARK_GREEN

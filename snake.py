@@ -11,7 +11,8 @@ class Snake:
     def draw_snake(self):
         for seg in self.body:
             from game_loop import cell_size
-            seg_rect = pygame.Rect( seg.x * cell_size, seg.y * cell_size,  cell_size, cell_size)
+            from game_loop import OFF_SET
+            seg_rect = pygame.Rect( OFF_SET + seg.x * cell_size, OFF_SET + seg.y * cell_size,  cell_size, cell_size)
 
             from game_loop import screen
             from game_loop import DARK_GREEN

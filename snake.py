@@ -5,6 +5,7 @@ from pygame import Vector2
 class Snake:
     def __init__(self):
         self.body = [Vector2(6,9), Vector2(5,9), Vector2(4,9)]
+        self.direction = Vector2(1,0)
 
     def draw_snake(self):
         for seg in self.body:
@@ -14,3 +15,9 @@ class Snake:
             from game_loop import screen
             from game_loop import DARK_GREEN
             pygame.draw.rect(screen, DARK_GREEN, seg_rect, 0 , 7)
+
+    def update_snake(self):
+        # remove the last seg that is the tail of our snake
+        self.body.pop()
+        self.body.insert(0, self.body[0] + self.direction)
+        return self.body

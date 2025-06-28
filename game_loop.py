@@ -28,8 +28,11 @@ while True:
             pygame.quit()
             sys.exit()
 
+    snak.update_snake()
+
     screen.fill(GREEN)
     food.draw()
     snak.draw_snake()
     pygame.display.update()
+
     clock.tick(60)

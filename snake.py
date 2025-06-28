@@ -7,6 +7,8 @@ class Snake:
         self.body = [Vector2(6,9), Vector2(5,9), Vector2(4,9)]
         self.direction = Vector2(1,0)
         self.add_segment = False
+        self.eat_sound = pygame.mixer.Sound("sounds/eat.mp3")
+        self.hit_wall = pygame.mixer.Sound("sounds/wall.mp3")
 
     def draw_snake(self):
         for seg in self.body:

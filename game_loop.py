@@ -13,6 +13,9 @@ first make a blank canvas
 '''
 pygame.init()
 
+title_font = pygame.font.SysFont('comicsans', 30)
+score_font = pygame.font.SysFont('comicsans', 20)
+
 GREEN = (173, 204, 96)
 DARK_GREEN = (43, 51, 24)
 OFF_SET = 75
@@ -49,6 +52,10 @@ while True:
     screen.fill(GREEN)
     pygame.draw.rect(screen, DARK_GREEN, (OFF_SET-5,OFF_SET-5, cell_size*num_of_cells + 10, cell_size*num_of_cells + 10), 5)
     game.draw()
+    title_surface = title_font.render("Snake Game", True, DARK_GREEN)
+    score_surface = title_font.render("Score: " + str(game.score), True, DARK_GREEN)
+    screen.blit(title_surface, (OFF_SET-5, 20))
+    screen.blit(score_surface, (OFF_SET-5, OFF_SET + cell_size * num_of_cells + 10))
     pygame.display.update()
 
     clock.tick(60)

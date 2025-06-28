@@ -13,6 +13,7 @@ class Game:
             self.snake.update_snake()
             self.check_collision_with_food()
             self.check_collision_with_edges()
+            self.check_collision_with_tail()
     def draw(self):
         self.food.draw()
         self.snake.draw_snake()
@@ -29,6 +30,11 @@ class Game:
         if self.snake.body[0].y == num_of_cells or self.snake.body[0].y == -1:
             self.game_over()
 
+    def check_collision_with_tail(self):
+        headless_body = self.snake.body.copy()
+        del headless_body[0]
+        if self.snake.body[0] in headless_body:
+            self.game_over()
     def game_over(self):
         self.snake.reset()
         self.food.position = self.food.generate_random_position(self.snake.body)

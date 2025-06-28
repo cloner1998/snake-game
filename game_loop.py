@@ -22,13 +22,16 @@ clock = pygame.time.Clock()
 
 food = Food()
 snak = Snake()
+SNAKE_UPDATE = pygame.USEREVENT
+pygame.time.set_timer(SNAKE_UPDATE, 200)
+
 while True:
     for event in pygame.event.get():
+        if event.type == SNAKE_UPDATE:
+            snak.update_snake()
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
-
-    snak.update_snake()
 
     screen.fill(GREEN)
     food.draw()

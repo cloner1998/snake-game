@@ -1,6 +1,7 @@
 import sys
 
 import pygame
+from pygame import Vector2
 
 import snake
 from food import Food
@@ -32,6 +33,15 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_UP:
+                snak.direction = Vector2(0,-1)
+            if event.key == pygame.K_DOWN:
+                snak.direction = Vector2(0,1)
+            if event.key == pygame.K_LEFT:
+                snak.direction = Vector2(-1,0)
+            if event.key == pygame.K_RIGHT:
+                snak.direction = Vector2(1,0)
 
     screen.fill(GREEN)
     food.draw()
